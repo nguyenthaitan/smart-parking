@@ -150,31 +150,31 @@ TIME COMPLEXITY: O(log n)
 
 ### Features Implemented
 
-✅ **Core Allocation**
+ **Core Allocation**
 - Nearest available space allocation using min-heap
 - O(log n) time complexity for allocation
 - Vehicle type enforcement (motorcycle vs car)
 - Space rejection when no suitable zone available
 
-✅ **Vehicle Tracking**
+ **Vehicle Tracking**
 - Hash table-based vehicle location tracking
 - O(1) lookup time
 - Parking duration calculation
 - Vehicle departure handling
 
-✅ **Data Management**
+ **Data Management**
 - CSV dataset loading for parking lot configuration
 - CSV dataset loading for simulation events
 - Distance calculation with floor + zone + offset formula
 - Occupancy statistics by floor and zone
 
-✅ **Simulation & Testing**
+ **Simulation & Testing**
 - Batch event simulation from CSV files
 - Realistic arrival/departure patterns
 - Performance measurement and logging
 - Statistical analysis of parking operations
 
-✅ **Error Handling**
+ **Error Handling**
 - Invalid vehicle ID validation
 - Vehicle type mismatch detection
 - Full zone handling (rejection scenarios)
