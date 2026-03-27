@@ -1,34 +1,16 @@
-# Data structure library
-add_library(data_structures
-    data/parking_space.cpp
-    data/vehicle.cpp
-)
+cmake_minimum_required(VERSION 3.10)
+project(SmartParkingSystem)
 
-# Domain services library
-add_library(domain_services
-    domain/parking_manager.cpp
-    domain/vehicle_tracker.cpp
-    domain/parking_lot.cpp
-)
-target_link_libraries(domain_services data_structures)
+# Language standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Integration library
-add_library(integration
-    integration/dataset_loader.cpp
-)
-target_link_libraries(integration data_structures domain_services)
+# Compiler flags
+if(MSVC)
+    add_compile_options(/W4)
+else()
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-# Application library
-add_library(application
-    application/simulation_runner.cpp
-)
-target_link_libraries(application domain_services integration)
-
-# Main executable
-add_executable(ParkingSystem main.cpp)
-target_link_libraries(ParkingSystem application domain_services integration data_structures)
-
-# Set output directory
-set_target_properties(ParkingSystem PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-)
+# Add subdirectories
+add_subdirectory(src)
