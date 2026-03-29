@@ -16,9 +16,9 @@ void printUsage(const char* program_name) {
 
 int main(int argc, char* argv[]) {
     ApplicationConfig config{
-        "data/parking_lot_config.csv",
-        "data/simulation_events.csv",
-        "data/simulation_report.txt",
+        "dataset/parking_lot_config.csv",
+        "dataset/simulation_events.csv",
+        "report/simulation_report.txt",
         false
     };
 

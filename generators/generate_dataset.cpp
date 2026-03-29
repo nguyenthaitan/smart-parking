@@ -21,7 +21,7 @@ int main() {
     const unsigned int RANDOM_SEED = 42;  // Fixed seed for consistent data
     
     // Setup output directory
-    const std::string DATA_DIR = "../data";
+    const std::string DATA_DIR = "../dataset";
     const std::string CONFIG_FILE = DATA_DIR + "/parking_lot_config.csv";
     const std::string EVENTS_FILE = DATA_DIR + "/simulation_events.csv";
     

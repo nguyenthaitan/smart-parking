@@ -221,7 +221,7 @@ cmake --build . --config Release
 
 # 3. Run simulation from project root
 cd ..
-./build/bin/ParkingSystem --config data/parking_lot_config.csv --events data/simulation_events.csv --verbose
+./build/bin/ParkingSystem --config dataset/parking_lot_config.csv --events dataset/simulation_events.csv --verbose
 ```
 
 ---
