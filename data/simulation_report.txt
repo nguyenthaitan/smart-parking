@@ -1,0 +1,12 @@
+=== Detailed Simulation Report ===
+Total Arrivals: 100
+Total Departures: 100
+Total Allocations: 74
+Total Rejections: 26
+  - Motorcycle Rejections: 9
+  - Car Rejections: 17
+Current Parked Vehicles: 27
+Current Occupancy Rate: 55.62%
+Peak Occupancy: 41 vehicles
+Average Parking Duration: 0.00 minutes
+Rejection Rate: 26.00%

@@ -1,5 +1,17 @@
 # Smart Parking System - Data Structures & Algorithms Course Project
 
+## Team Infomation
+
+Team 14 - TPH
+
+| Họ và tên | MSSV |
+|---|---|
+| Nguyễn Thái Tân | 18127269 |
+| Trần Nhật Huy | 25127068 |
+| Lê Hoàng Phúc | 24127499 |
+
+---
+
 ## Project Overview
 
 This project implements an **intelligent parking lot management system** that demonstrates efficient use of data structures and algorithms to solve a real-world problem. The system allocates parking spaces optimally using a **Min-Heap (Priority Queue)** for space management and a **Hash Table** for vehicle tracking, achieving O(log n) allocation time complexity.
@@ -186,88 +198,10 @@ TIME COMPLEXITY: O(log n)
 
 | Component | Technology |
 |-----------|-----------|
-| **Language** | C++17 |
+| **Language**  | C++17 |
 | **Build System** | CMake 3.10+ |
 | **Data Structures** | C++ Standard Library (vector, priority_queue, unordered_map) |
-| **Testing Framework** | Google Test (gtest) [optional] |
 | **Version Control** | Git |
-
----
-
-## Directory Structure
-
-```
-smart-parking/
-├── README.md                          # Project documentation
-├── CMakeLists.txt                     # Build configuration
-├── src/
-│   ├── main.cpp                       # Main application entry point
-│   ├── parking_lot.hpp/cpp            # ParkingLot controller class
-│   ├── parking_space.hpp/cpp          # ParkingSpace data structure
-│   ├── vehicle.hpp/cpp                # Vehicle data structure
-│   ├── parking_manager.hpp/cpp        # ParkingManager (allocation logic)
-│   ├── dataset_loader.hpp/cpp         # CSV data loader
-│   └── simulation_runner.hpp/cpp      # Simulation orchestration
-├── data/
-│   ├── parking_lot_config.csv         # Parking lot configuration
-│   └── simulation_events.csv          # Simulation events
-├── tests/
-│   ├── CMakeLists.txt                 # Test build configuration
-│   ├── test_parking_lot.cpp           # Unit tests for ParkingLot
-│   ├── test_parking_manager.cpp       # Unit tests for allocation
-│   └── test_vehicle_tracking.cpp      # Unit tests for tracking
-├── build/                             # CMake build directory
-├── aidlc-docs/                        # AI-DLC documentation
-│   ├── aidlc-state.md                # Project state tracking
-│   ├── audit.md                       # Audit trail
-│   ├── inception/                    # Inception phase artifacts
-│   └── construction/                  # Construction phase artifacts
-└── .git/                              # Git repository
-
-```
-
----
-
-## Building the Project
-
-### Prerequisites
-
-- C++17 compatible compiler (g++, clang, MSVC)
-- CMake 3.10 or higher
-- Git
-
-### Build Instructions
-
-```bash
-# Clone the repository (or navigate to existing clone)
-cd /path/to/smart-parking
-
-# Create build directory
-mkdir -p build
-cd build
-
-# Configure and build
-cmake ..
-cmake --build . --config Release
-
-# Run the main application
-./ParkingSystem
-
-# Run tests (if implemented)
-./test_parking_lot
-./test_parking_manager
-./test_vehicle_tracking
-```
-
-### Build Output
-
-```
-build/
-├── ParkingSystem              # Main executable
-├── test_parking_lot           # Test executable
-├── test_parking_manager       # Test executable
-└── test_vehicle_tracking      # Test executable
-```
 
 ---
 
@@ -275,30 +209,19 @@ build/
 
 ### Quick Start
 
+Get the project running in **5 minutes**:
+
 ```bash
-# Build the project
-cd build && cmake .. && cmake --build .
+# 1. Create build directory and configure
+mkdir -p build && cd build
+cmake ..
 
-# Generate parking lot and events (auto-created on first run)
-./ParkingSystem --generate
+# 2. Compile
+cmake --build . --config Release
 
-# Run simulation
-./ParkingSystem --simulate
-```
-
-**Output**: Allocation logs, statistics, and occupancy reports
-
-### Sample Output
-```
-=== Smart Parking System ===
-Loading: 852 spaces (5 floors, 9 zones)
-Processing: 250 events
-
-Results:
-  Allocations: 123/125 (98.4%)
-  Avg duration: 145 minutes
-  Avg distance: 22.5 meters
-  Peak occupancy: 92.3%
+# 3. Run simulation from project root
+cd ..
+./build/bin/ParkingSystem --config data/parking_lot_config.csv --events data/simulation_events.csv --verbose
 ```
 
 ---
@@ -391,14 +314,6 @@ Logarithmic growth confirms O(log n) behavior.
 
 ## Testing Strategy
 
-### Unit Tests (80%+ coverage)
-```cpp
-TEST(ParkingLotTest, AllocateNearestSpace) { ... }
-TEST(ParkingLotTest, EnforceVehicleType) { ... }
-TEST(ParkingManagerTest, HeapProperty) { ... }
-TEST(VehicleTrackingTest, FindVehicle) { ... }
-```
-
 ### Integration Tests
 - Light Load: 50 arrivals, 0% rejection
 - Medium Load: 300 arrivals, 2-5% rejection
@@ -443,37 +358,6 @@ TEST(VehicleTrackingTest, FindVehicle) { ... }
 
 ---
 
-## Repository & Version Control
-
-**Repository**: https://github.com/nguyenthaitan/smart-parking  
-**Commits**: Meaningful messages for each feature/component
-
-### Example Commits
-```
-- Initial project setup with CMake
-- Implement ParkingSpace and ParkingLot
-- Implement Vehicle tracking with hash table
-- Add dataset loader (CSV parsing)
-- Add simulation runner
-- Add unit tests
-- Complete documentation
-```
-
----
-
-## Building and Testing Checklist
-
-- [ ] CMake configuration verified
-- [ ] All components compile without errors
-- [ ] Unit tests pass (80%+ coverage)
-- [ ] Integration tests pass with sample datasets
-- [ ] Performance meets O(log n) requirement
-- [ ] README documentation complete (< 2,000 words)
-- [ ] Code comments clear and comprehensive
-- [ ] Git commits meaningful and properly documented
-
----
-
 ## Questions & Answers
 
 **Q: Why not use a sorted list?**  
@@ -489,14 +373,3 @@ A: std::unordered_map auto-rehashes when load factor exceeds ~0.75.
 A: Each space stores an offset (0-5m) representing distance from zone center, providing variation while keeping the formula simple.
 
 ---
-
-## License & Attribution
-
-This project is submitted as coursework for the Data Structures and Algorithms course.  
-All code is original work unless otherwise attributed.
-
----
-
-**Document Version**: 1.0  
-**Last Updated**: March 23, 2026  
-**Status**: Complete & Ready for Submission
